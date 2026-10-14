@@ -1,74 +1,49 @@
-# Lockheed Martin — Geopolitical & Financial Analysis
+# Lockheed Martin | Financial Performance & Geopolitical Event Analysis
 
-**Interactive financial research dashboard | Power BI · Financial Statement Analysis · Event Study · Data Visualization**
+**A nine-page interactive website based on my original Power BI report**, exploring Lockheed Martin financial performance (FY2021–FY2025) and market-price responses to ten selected geopolitical events.
 
-Independent portfolio project by **Blessing Nwotite**.
+### [Open the interactive website](https://3lessing.github.io/LMT_Geopolitical_Analysis/)
 
-[**View the interactive research dashboard ↗**](https://3lessing.github.io/LMT_Geopolitical_Analysis/)  ·  [**Read the original nine-page Power BI report (PDF)**](LMT_Full_Report.pdf)
-
-![Overview of the original Power BI report](report-preview.png)
+The site's original page layout, charts, text, colors and imagery are based on the Power BI report. Browser-side functionality adds drill-downs and filtering without requiring a Microsoft or Power BI account. The interactive website is a custom recreation, not a Power BI embed.
 
 ## Research question
 
-How has Lockheed Martin's financial performance evolved, and how has its share price behaved relative to broad-market and aerospace/defense benchmarks following selected geopolitical events?
+Does geopolitical tension translate into sustained outperformance for defense stocks?
 
-This project joins **five years of reported financial performance (FY2021–FY2025)** with **daily LMT, SPY and ITA price histories** and **10 selected geopolitical events (2021–2025)**.
+### Key findings
 
-## Interactive dashboard
+- Across ten selected geopolitical events, LMT outperformed defense ETF **ITA in 8 of 10 events (80%)** over the first five trading sessions; median relative outperformance was **+2.45 percentage points**.
+- At 20 trading sessions, that dropped to **4 of 10 (40%)** and median relative performance fell to **−1.93 percentage points**.
+- LMT revenue grew from approximately **$67.0B in FY2021 to $75.0B in FY2025**, while its reported operating margin declined from **13.6% to 10.3%**.
+- Results are exploratory and should not be interpreted as evidence of causality or an actionable investment strategy.
 
-The GitHub Pages website is a **custom JavaScript recreation** of the Power BI research project, not a native Power BI embed. It uses historical data exported from the project workbooks and works without a Power BI license or sign-in.
+## What is interactive?
 
-| View | What you can explore |
-| --- | --- |
-| Executive overview | Revenue, backlog, operating margin, free cash flow, and event-window performance |
-| Financial performance | Annual revenue, operating profit, net income, and margin trends |
-| Geopolitical events | Compare **LMT, SPY, and ITA** returns for 1-, 5-, 10-, and 20-session event windows |
-| Reaction persistence | Median excess return, win rate, and an event-by-event heatmap |
-| Operating performance | Business-segment revenue, margins, and backlog by year |
-| Market performance | Adjust the date range and toggle indexed price series |
-| Cash flow analysis | Operations, investing, financing, dividends, repurchases and free cash flow |
-| Methodology & sources | Reproduce definitions, review limitations, and open source references |
+1. Navigate all **nine original report pages** using the Pages sidebar.
+2. On **Event Analysis**, change the event window between **1, 5, 10 and 20 trading sessions** using the header selector or the selector positioned over the original slicer. Event returns, benchmark comparison bars, median returns, and the share beating ITA are recomputed from event-level observations.
+3. Click an **event name or benchmark bar** to cross-highlight the selected event and recalculate metrics for that event. Use the event selector to make the selection from anywhere.
+4. Click **years** and **operating segments** on financial/operating/cash-flow pages to filter and explore the original annual figures.
+5. On **Market Performance**, change the **start/end dates**, show or hide **LMT, SPY and ITA**, hover for dated close values, or **drag across the plot to zoom**. The site rebases indexed performance to 100 using each series' first available trading close in the selected period.
+6. Use **Reset selections** to return to the original report overview and default values for the current page.
 
-## Selected findings
+Some static descriptions and methodology panels remain read-only; specific visuals cross-highlight rather than dynamically recompute every element as the native Power BI visual engine would. A true `.pbix` runtime cannot run on GitHub Pages.
 
-- Revenue increased from **$67.0 billion in 2021** to **$75.0 billion in 2025**, while consolidated operating margin fell from approximately **13.6% to 10.3%**.
-- FY2025 operating cash flow was **$8.557 billion**, with capital expenditures of **$1.649 billion**, generating approximately **$6.908 billion in free cash flow**.
-- In a **selected sample of 10 events**, LMT outperformed aerospace/defense benchmark ITA in **8 of 10 five-session windows**, but only **4 of 10 twenty-session windows**.
-- Median LMT excess price return versus ITA shifted from approximately **+2.45 percentage points over 5 sessions** to **−1.93 percentage points over 20 sessions**.
+## Included files
 
-**These observations are descriptive.** They do not establish causation, statistical significance, or a reliable trading strategy. All reported market returns are **price returns excluding dividends**.
+- `index.html` — website application and interactive charts/selection logic.
+- `data.js` — annual financial, segment and cash-flow observations, event-study observations and daily closing prices, built from project source data.
+- `page-1.webp` through `page-9.webp` — exported original report pages used for visually faithful presentation.
+- `LMT_Original_Report.pdf` — original report PDF, accessible through the website.
+- `README.md` — research summary and site instructions.
 
-## Methodology
+## Methodology and limitations
 
-- **Return window:** assign the event to the first trading day on or after the event date; use the preceding trading close as the baseline. The assigned session counts as session 1.
-- **Security price return:** `(ending close / beginning close) - 1`.
-- **Benchmark outperformance:** `LMT price return - benchmark price return`, expressed in percentage points.
-- **Operating margin:** `operating profit / revenue`.
-- **Free cash flow:** `operating cash flow - capital expenditure`.
-- **FCF conversion:** `free cash flow / net income`.
-- **Indexed market price:** `current close / first close in selected period × 100`.
+Price returns are calculated from the recorded trading closes and **exclude dividends**. Trading sessions are counted from the assigned post-event trading session. Relative returns compare LMT's event-window price return with SPY and ITA for the same window, in percentage points. Ten selected events cannot establish a general relationship or isolate confounding information. Source histories and adjustments have the limitations described in the report. A corrected SPY close on April 20, 2026 is reflected in the website's price series.
 
-Financial and event calculations are consistent with the original Power BI project. Reported source limitations include selected rather than exhaustive geopolitical events, unverified precise announcement times, potentially overlapping windows, dividend exclusions, and missing comparable FY2021 segment operating-profit data.
+Underlying information is sourced from Lockheed Martin earnings releases, Nasdaq price observations (with identified corrections and verification), and event references identified in the original report. Data publication may be subject to the original providers' licensing and redistribution requirements.
 
-## Data and references
+## Deployment
 
-Lockheed Martin financial data comes from company [2021 full-year](https://news.lockheedmartin.com/2022-01-25-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2021-Financial-Results), [2023 full-year](https://news.lockheedmartin.com/2024-01-23-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2023-Financial-Results), and [2025 full-year](https://news.lockheedmartin.com/2026-01-29-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results) earnings releases, including comparative prior years. Historical LMT, SPY, and ITA price observations were sourced from Nasdaq with source-specific corrections noted in the report. Event dates are supported by NATO, United Nations, and Reuters references documented in the event register.
+This is a static GitHub Pages project. Put all files in the **root** of the public repository `3lessing/LMT_Geopolitical_Analysis`. Under **Settings → Pages**, choose **Deploy from a branch**, `main`, and `/(root)`. GitHub will serve `index.html`. No npm install, paid hosting, database, Microsoft sign-in or credentials are needed to view the public site.
 
-**Data coverage:** financial actuals FY2021–FY2025; market closing-price observations Jan. 2021–Sept. 11, 2026. The website uses a static historical snapshot; it does not make live market-data requests.
-
-## Files
-
-- `index.html` — complete standalone interactive website, including chart code and a copy of the project dataset.
-- `LMT_Full_Report.pdf` — original nine-page visual analysis.
-- `report-preview.png` — preview of the Power BI report.
-- `LMT_Geopolitical_Analysis_final.pbix` — original Power BI file, retained in the GitHub repository if already uploaded.
-
-## Publishing via GitHub Pages
-
-On this repository, go to **Settings → Pages → Build and deployment → Deploy from a branch → `main` → `/(root)` → Save**. GitHub Pages serves the `index.html` file at `https://3lessing.github.io/LMT_Geopolitical_Analysis/` once deployment is complete.
-
-The site is intentionally dependency-free and runs on GitHub Pages or directly in a modern web browser. The `index.html` and report PDF must be uploaded to the **repository root**, not placed inside a subfolder or left zipped.
-
----
-
-*This is an independent academic/portfolio research project, not affiliated with or endorsed by Lockheed Martin. It is not investment advice.*
+**Portfolio project by Blessing Nwotite.** Not financial or investment advice.
