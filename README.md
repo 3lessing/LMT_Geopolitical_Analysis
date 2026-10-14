@@ -1,61 +1,63 @@
-# Lockheed Martin | Financial Performance & Geopolitical Event Analysis
+# Lockheed Martin | Interactive Financial & Geopolitical Analysis
 
-**A nine-page interactive website based on my original Power BI report**, exploring Lockheed Martin financial performance (FY2021–FY2025) and market-price responses to ten selected geopolitical events.
+**A browser-based, interactive recreation of the analytical content of my Power BI research project.**
 
-### [Open the interactive website](https://3lessing.github.io/LMT_Geopolitical_Analysis/)
+[**Open the interactive dashboard**](https://3lessing.github.io/LMT_Geopolitical_Analysis/) · [**Research report (PDF)**](LMT_Research_Report.pdf)
 
-The site preserves the original nine-page arrangement, colors and research copy. All analytical chart regions are rebuilt as live SVG/HTML elements at page load, using the source data; page images are retained only as visual/background references. Browser-side functionality adds filtering without requiring a Microsoft or Power BI account. This is a custom recreation, not a Power BI embed.
+**Author:** Blessing Nwotite  
+**Data coverage:** Lockheed Martin FY2021–FY2025 financial statements; LMT, SPY and ITA daily prices through September 11, 2026; 10 selected geopolitical events during 2021–2025.
 
-## Research question
+## Overview
 
-Does geopolitical tension translate into sustained outperformance for defense stocks?
+This project evaluates Lockheed Martin's financial performance, backlog growth, cash generation, and historical stock-price reactions to selected geopolitical events. It compares LMT with the S&P 500 ETF (SPY) and the iShares U.S. Aerospace & Defense ETF (ITA) across 1-, 5-, 10-, and 20-session event windows.
 
-### Key findings
+The website is **not an embedded Power BI report**. It is a standalone reconstruction with a redesigned layout, built with native HTML/CSS/JavaScript and locally bundled Plotly.js. Its charts are real, data-backed interactive charts—not images.
 
-- Across ten selected geopolitical events, LMT outperformed defense ETF **ITA in 8 of 10 events (80%)** over the first five trading sessions; median relative outperformance was **+2.45 percentage points**.
-- At 20 trading sessions, that dropped to **4 of 10 (40%)** and median relative performance fell to **−1.93 percentage points**.
-- LMT revenue grew from approximately **$67.0B in FY2021 to $75.0B in FY2025**, while its reported operating margin declined from **13.6% to 10.3%**.
-- Results are exploratory and should not be interpreted as evidence of causality or an actionable investment strategy.
+## What you can interact with
 
-## What is interactive?
+- **Executive Overview:** select years, click segment-revenue bars and backlog bars, and jump to event-window analysis.
+- **Financial Performance:** change focus years, click financial table rows and chart points, hover for exact data, and explore profitability and revenue growth.
+- **Event Analysis:** switch 1/5/10/20 trading sessions, compare ITA or SPY, and click individual geopolitical-event bars or table rows to inspect returns.
+- **Reaction Persistence:** view event outperformance across four windows, click columns and heatmap cells, and compare event-level benchmark-adjusted returns.
+- **Operating Performance:** filter by financial year and business segment; inspect revenue, backlog and segment margins.
+- **Market Performance:** change date ranges, toggle LMT/SPY/ITA, hover the charts, zoom and pan the plotted data, and see the returns recalculate.
+- **Cash Flow Analysis:** change fiscal years and compare operating cash flow, investing and financing flows, dividends, buybacks, and free cash flow.
+- **Methodology & Limitations:** review formulas, data conventions and research caveats.
+- **Sources & Event Register:** filter and open selected geopolitical events; inspect links to data origins.
 
-1. Navigate all **nine original report pages** using the Pages sidebar.
-2. On **Event Analysis**, change the event window between **1, 5, 10 and 20 trading sessions** using the header selector or the selector positioned over the original slicer. Event returns, benchmark comparison bars, median returns, and the share beating ITA are recomputed from event-level observations.
-3. Click an **event name or benchmark bar** to cross-highlight the selected event and recalculate metrics for that event. Use the event selector to make the selection from anywhere.
-4. Click **years** and **operating segments** on financial/operating/cash-flow pages to filter and explore the original annual figures.
-5. On **Market Performance**, change the **start/end dates**, show or hide **LMT, SPY and ITA**, hover for dated close values, or **drag across the plot to zoom**. The site rebases indexed performance to 100 using each series' first available trading close in the selected period.
-6. Use **Reset selections** to clear filters on your current page and return to the original default values.
+## Key findings
 
-The narrative descriptions and methodology pages remain read-only. All main analytical charts are live SVG rather than static screenshots. Some views cross-highlight selections instead of performing the identical cross-filter propagation of Power BI; native `.pbix` execution is not supported by GitHub Pages.
+- Lockheed Martin's reported revenue increased from **$67.0B in FY2021** to **$75.0B in FY2025**, while its operating margin declined from **13.6%** to **10.3%**.
+- FY2025 reported backlog was **$193.6B** and free cash flow was approximately **$6.9B**.
+- LMT outperformed ITA on a price-return basis across **8 of 10 events within 5 trading sessions**, compared with **4 of 10 within 20 trading sessions**. The sample is deliberately selected and **does not establish causality or a repeatable trading strategy**.
 
-## Included files
+## Run locally
 
-- `index.html` — website application and interactive charts/selection logic.
-- `data.js` — annual financial, segment and cash-flow observations, event-study observations and daily closing prices, built from project source data.
-- `page-1.webp` through `page-9.webp` — exported original report pages used for visually faithful presentation.
-- `LMT_Original_Report.pdf` — original report PDF, accessible through the website.
-- `README.md` — research summary and site instructions.
+1. Download this repository or clone it.
+2. Open **`index.html`** in a browser. Internet access and a Power BI account are not required because Plotly is bundled locally.
+3. Choose pages from the left navigation and use filters and charts to explore.
 
-## Methodology and limitations
+## Publish with GitHub Pages
 
-Price returns are calculated from the recorded trading closes and **exclude dividends**. Trading sessions are counted from the assigned post-event trading session. Relative returns compare LMT's event-window price return with SPY and ITA for the same window, in percentage points. Ten selected events cannot establish a general relationship or isolate confounding information. Source histories and adjustments have the limitations described in the report. A corrected SPY close on April 20, 2026 is reflected in the website's price series.
+1. Upload `index.html`, `styles.css`, `app.js`, `data.js`, `plotly.min.js`, `LMT_Research_Report.pdf`, and this `README.md` to the **root** of the public repository.
+2. From **Settings → Pages**, select **Deploy from a branch**, then `main` and `/(root)`.
+3. Save and wait for GitHub Pages to finish publishing.
+4. Refresh `https://3lessing.github.io/LMT_Geopolitical_Analysis/` (Ctrl+Shift+R if an older version is cached).
 
-Underlying information is sourced from Lockheed Martin earnings releases, Nasdaq price observations (with identified corrections and verification), and event references identified in the original report. Data publication may be subject to the original providers' licensing and redistribution requirements.
+No build tools, API keys or online JavaScript frameworks are required. Previous `page-*.webp` screenshot files are not used by this new version.
 
-## Verification checklist
+## Data, methodologies and limitations
 
-Before sharing on LinkedIn, open the **GitHub Pages website** rather than the GitHub repository's Code tab. The following should work:
+- Annual financials: [Lockheed Martin full-year FY2021 release](https://news.lockheedmartin.com/2022-01-25-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2021-Financial-Results), [FY2023 release](https://news.lockheedmartin.com/2024-01-23-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2023-Financial-Results), and [FY2025 release](https://news.lockheedmartin.com/2026-01-29-Lockheed-Martin-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results), with comparative-year figures.
+- Daily price histories: Nasdaq-sourced LMT, SPY and ITA close-price observations retained in the Power BI project dataset, including a documented SPY April 20, 2026 correction.
+- Selected historical events: public UN, NATO and related historical sources included in the Sources & Event Register.
+- Event price return = end-window close / baseline close − 1. Relative return = LMT price return − benchmark price return.
+- Prices and returns **exclude dividends**. Historical adjustment conventions have not been exhaustively independently confirmed.
+- The 10 events are not a randomized or exhaustive sample, timing is based on assigned public dates, and co-occurring news may drive prices. The dashboard makes **no causal claims** and is not investment advice.
+- Before redistributing historical market data publicly, confirm that the applicable source license permits republication.
 
-- **Event Analysis:** select **5 sessions**; the share beating ITA changes from **70% at 10 sessions** to **80% at 5 sessions**, while the table and colored comparison bars redraw. Hover a bar for its exact value.
-- **Event Analysis:** click *Fall of Kabul* in the event table; the share and median now reflect only that event. Click the row again to clear selection.
-- **Financial Performance:** click the 2024 row; the selected year becomes highlighted across the financial charts, then click 2025.
-- **Market Performance:** uncheck SPY; the SPY line disappears. Adjust the date range; the indexed series start at 100 within the new selected window.
-- **Reset selections** clears all active filters.
+## Technical notes
 
-Use a private/incognito browser window to check whether deployment is accessible without logging into GitHub. Depending on browser caching, you may need a hard refresh after the next commit. If the live link still shows screenshot-only visuals, check whether the updated `index.html` was committed in the root of the deployed `main` branch.
+The web dashboard uses locally bundled **Plotly.js 3.3.1** (MIT-licensed) for interactive charts. Data is stored in `data.js` and analyzed in-browser using ordinary JavaScript. The app sends no requests to external financial APIs and does not refresh automatically.
 
-## Deployment
-
-This is a static GitHub Pages project. Put all files in the **root** of the public repository `3lessing/LMT_Geopolitical_Analysis`. Under **Settings → Pages**, choose **Deploy from a branch**, `main`, and `/(root)`. GitHub will serve `index.html`. No npm install, paid hosting, database, Microsoft sign-in or credentials are needed to view the public site.
-
-**Portfolio project by Blessing Nwotite.** Not financial or investment advice.
+© 2026 Blessing Nwotite · Independent portfolio research.
